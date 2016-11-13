@@ -55,7 +55,6 @@ body {
   display: block;
   margin: 0;
   width: 100%;
-  min-width: 1024px;
   height: 48px;
   max-height: 44px;
   background: #000000;
@@ -68,7 +67,8 @@ body {
 }
 .ac-gn-content {
   text-align: center;
-  max-width: 720px;
+  max-width: 100%;
+  padding: 0 22px;
   position: relative;
   z-index: 2;
   height: 100%;
@@ -79,6 +79,7 @@ body {
   position: absolute;
   z-index: 3;
   top: 0;
+  text-align: justify;
   left: 0;
   margin: 0 auto;
   width: 100%;
@@ -150,6 +151,7 @@ body {
   left: 50%;
   text-align: center;
   z-index: 1;
+  display: inline-block;
 }
 .ac-apple {
   display: block;
@@ -160,7 +162,7 @@ body {
 .ac-list3 {
   width: 48px;
   height: 48px;
-  right: 30px;
+  right: 13px;
   position: absolute;
   top: 0;
   z-index: 2;
@@ -234,7 +236,6 @@ body {
 .ac-gn-list {
   display: none;
   cursor: default;
-  margin: 0 -10px;
   width: 100%;
   height: 44px;
   text-align: justify;
@@ -351,9 +352,11 @@ body {
   max-height: 100%;
   min-height: 540px;
 }
+.header {
+  height: 540px;
+}
 .imgbox {
   position: relative;
-  z-index: 1;
   overflow: hidden;
   height: 540px;
 }
@@ -389,15 +392,96 @@ body {
   height: 2px;
   float: left;
   margin-left: 20px;
+  border: 1px solid #1C1C1E;
+}
+.btn1 .progress {
+  width: 0%;
+  height: 2px;
   background: #ccc;
-  opacity: 0.1;
+}
+.left-Btn {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  left: 20px;
+  background: #ccc;
+  font-size: 25px;
+  text-align: center;
+  line-height: 50px;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+.right-Btn {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  right: 20px;
+  background: #ccc;
+  font-size: 25px;
+  text-align: center;
+  line-height: 50px;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+.left-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  z-index: 9;
+}
+.right-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  z-index: 9;
+}
+.left-box:hover > .left-Btn {
+  opacity: 1;
+}
+.right-box:hover > .right-Btn {
+  opacity: 1;
+}
+.gallery-item-lockup-wrapper {
+  text-align: center;
+  position: absolute;
+  top: 14%;
+  width: 100%;
+  color: #fff;
+}
+.enhanced-gallery .logo-image-iphone {
+  width: 95px;
+  height: 24px;
+  background-size: 95px 24px;
+  background-repeat: no-repeat;
+  background-image: url("../img/logo_iphone_large.png");
+  left: 50%;
+  margin-left: -47.5px;
+  position: relative;
+}
+.homepage-headline {
+  font-size: 42px;
+  line-height: 1;
 }
 .banner {
   position: absolute;
   z-index: 1;
   width: 100%;
   height: auto;
-  top: 0;
+  top: 44px;
   bottom: -10%;
   left: 0;
   right: 0;
@@ -406,7 +490,6 @@ body {
   float: left;
 }
 .banner1 {
-  background-size: cover;
   height: auto;
   background: url("../img/iphone_large.jpg") no-repeat center;
 }
@@ -416,6 +499,7 @@ body {
   background: url("../img/macbookpro_small.jpg") no-repeat center;
 }
 .banner3 {
+  background-size: contain;
   height: auto;
   background: url("../img/event_small.jpg") no-repeat center;
 }
@@ -588,6 +672,13 @@ footer {
   font-size: 12px;
   color: #333;
 }
+.lis-con:after {
+  content: '+';
+  float: right;
+  font-weight: normal;
+  margin-right: 8px;
+  color: #333;
+}
 .lis-k {
   border-bottom: 1px solid #e3e3e3;
 }
@@ -746,28 +837,24 @@ footer {
 @media screen and (min-width: 720px) {
   .ac-gn-content {
     margin: 0 auto;
-    max-width: 980px;
+    max-width: 83%;
     padding: 0 22px;
   }
   .ac-header {
     display: none;
   }
+  .xl-list {
+    display: none;
+  }
   .ac-gn-list {
     display: block;
   }
-  .banner1 {
-    background-size: cover;
-    height: auto;
-    background: url("../img/iphone_large.jpg") no-repeat center;
-  }
   .banner2 {
-    background-size: cover;
-    height: auto;
+    background-size: contain;
     background: url("../img/macbookpro_medium.jpg") no-repeat center;
   }
   .banner3 {
-    background-size: cover;
-    height: auto;
+    background-size: contain;
     background: url("../img/event_medium.jpg") no-repeat center;
   }
   .promo-nike-watch {
@@ -916,28 +1003,27 @@ footer {
 @media screen and (min-width: 1060px) {
   .ac-gn-content {
     margin: 0 auto;
-    max-width: 980px;
+    max-width: 83%;
     padding: 0 22px;
   }
   .ac-gn-list {
     display: block;
+  }
+  .xl-list {
+    display: none;
   }
   .ac-header {
     display: none;
   }
   .banner1 {
     background-size: cover;
-    height: auto;
-    background: url("../img/iphone_large.jpg") no-repeat center;
   }
   .banner2 {
-    background-size: cover;
-    height: auto;
-    background: url("../img/macbookpro_large.jpg") no-repeat center;
+    background-size: contain;
+    background: url("../img/macbookpro_medium.jpg") no-repeat center;
   }
   .banner3 {
-    background-size: cover;
-    height: auto;
+    background-size: contain;
     background: url("../img/event_large.jpg") no-repeat center;
   }
   .promo-nike-watch {
